@@ -1,6 +1,7 @@
 const express = require("express");
 const { Client } = require('pg');
 const dotenv = require('dotenv');
+const cors = require('cors');
 
 dotenv.config();
 
@@ -9,6 +10,7 @@ const PORT = process.env.port || 5000;
 
 //middlewares
 //app.use(express.static("public"));
+app.use(cors());
 app.use(express.json());
 
 async function executeQuery(query, values) {
